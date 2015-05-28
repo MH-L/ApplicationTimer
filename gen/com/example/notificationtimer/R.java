@@ -1902,6 +1902,7 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020039;
         public static final int abc_textfield_search_material=0x7f02003a;
         public static final int ic_launcher=0x7f02003b;
+        public static final int new_icon=0x7f02003c;
     }
     public static final class id {
         public static final int action_bar=0x7f090040;
@@ -2045,13 +2046,15 @@ containing a value of this type.
         public static final int abc_select_dialog_material=0x7f030017;
         public static final int abc_simple_dropdown_hint=0x7f030018;
         public static final int activity_main=0x7f030019;
-        public static final int select_dialog_item_material=0x7f03001a;
-        public static final int select_dialog_multichoice_material=0x7f03001b;
-        public static final int select_dialog_singlechoice_material=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
+        public static final int activity_pick_app=0x7f03001a;
+        public static final int select_dialog_item_material=0x7f03001b;
+        public static final int select_dialog_multichoice_material=0x7f03001c;
+        public static final int select_dialog_singlechoice_material=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
+        public static final int pick_app=0x7f0c0001;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -2120,6 +2123,7 @@ containing a value of this type.
         public static final int execute_button=0x7f0a0015;
         public static final int hello_world=0x7f0a0012;
         public static final int request_time=0x7f0a0014;
+        public static final int title_activity_pick_app=0x7f0a0018;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0b0040;

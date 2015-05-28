@@ -2,12 +2,13 @@ package com.example.notificationtimer;
 
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -15,11 +16,11 @@ public class MainActivity extends ActionBarActivity {
 	/**
 	 * The title of the App, shown on top of the page.
 	 */
-	private EditText appTitle;
+	private TextView appTitle;
 	/**
 	 * The instruction sentence that asks user to input time.
 	 */
-	private EditText requestTime;
+	private TextView requestTime;
 	/**
 	 * The execute button which takes user to another interface.
 	 */
@@ -38,8 +39,8 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		// My own code here.
-		appTitle = (EditText) findViewById(R.id.textView1);
-		requestTime = (EditText) findViewById(R.id.textView2);
+		appTitle = (TextView) findViewById(R.id.textView1);
+		requestTime = (TextView) findViewById(R.id.textView2);
 		executeButton = (Button) findViewById(R.id.button1);
 		timePicker = (TimePicker) findViewById(R.id.timePicker1);
 
@@ -52,6 +53,9 @@ public class MainActivity extends ActionBarActivity {
 				int duration = Toast.LENGTH_LONG;
 				final Toast toast = Toast.makeText(ctxt, text, duration);
 				toast.show();
+				Intent intent = new Intent();
+				intent.setAction("com.example.notificationtimer.PickAppActivity");
+				startActivity(intent);
 			}
 		});
 
