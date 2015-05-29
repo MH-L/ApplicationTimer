@@ -1,64 +1,64 @@
 package com.example.notificationtimer;
 
-import android.support.v7.app.ActionBarActivity;
-import android.content.Context;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore.Images.Media;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
-public class MainActivity extends ActionBarActivity {
-	/**
-	 * The title of the App, shown on top of the page.
-	 */
-	private TextView appTitle;
-	/**
-	 * The instruction sentence that asks user to input time.
-	 */
-	private TextView requestTime;
-	/**
-	 * The execute button which takes user to another interface.
-	 */
-	private Button executeButton;
-	/**
-	 * The time picker.
-	 */
-	private TimePicker timePicker;
+public class MainActivity extends Activity {
+
+	Button addNewTaskBtn;
+	Button pickPhotoBtn;
+	ImageView iv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		/*
-		 * Just like the constructor of the activity
-		 * (Illustrated by me).
-		 */
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		// My own code here.
-		appTitle = (TextView) findViewById(R.id.textView1);
-		requestTime = (TextView) findViewById(R.id.textView2);
-		executeButton = (Button) findViewById(R.id.button1);
-		timePicker = (TimePicker) findViewById(R.id.timePicker1);
+		setContentView(R.layout.activity_main_page);
 
-		/* Annonymous Class */
-		executeButton.setOnClickListener(new View.OnClickListener() {
+		pickPhotoBtn = (Button) findViewById(R.id.button2);
+		addNewTaskBtn = (Button) findViewById(R.id.button1);
+		iv = (ImageView) findViewById(R.id.imageView1);
+		addNewTaskBtn.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
-				Context ctxt = getApplicationContext();
-				CharSequence text = "You too stupid!";
-				int duration = Toast.LENGTH_LONG;
-				final Toast toast = Toast.makeText(ctxt, text, duration);
-				toast.show();
 				Intent intent = new Intent();
-				intent.setAction("com.example.notificationtimer.PickAppActivity");
+				intent.setAction("com.example.notificationtimer.TimePickerActivity");
 				startActivity(intent);
 			}
 		});
+		pickPhotoBtn.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				Intent pickPhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+				pickPhotoIntent.setType("image/*");
+				startActivityForResult(pickPhotoIntent, 1);
+			}
+		});
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == 1) {
+	        Bitmap imageChosen = (Bitmap) data.getExtras().get("data");
+	        iv.setImageBitmap(imageChosen);
+	    }
 	}
 
 	@Override
