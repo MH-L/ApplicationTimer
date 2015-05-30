@@ -35,23 +35,21 @@ public class PickAppActivity extends Activity {
 				if (choice.equalsIgnoreCase("SMS")) {
 					Toast toast = Toast.makeText(getApplicationContext(), "SMS Opened", duration);
 					toast.show();
-					Intent intent = new Intent();
-					intent.setAction("com.example.notificationtimer.SMSOptionActivity");
+					Intent intent = new Intent(getApplicationContext(), TimePickerActivity.class);
+					intent.putExtra("Application", "SMS");
 					startActivity(intent);
 				} else if (choice.equalsIgnoreCase("Music")) {
 					Toast toast = Toast.makeText(getApplicationContext(), "MusicGonnaPlay", duration);
 					toast.show();
-					Intent intent = new Intent("android.intent.action.MUSIC_PLAYER");
-					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					Intent intent = new Intent(getApplicationContext(), TimePickerActivity.class);
+					intent.putExtra("Application", "Music");
 					startActivity(intent);
 				} else {
 					Toast toast = Toast.makeText(getApplicationContext(), "Alarm Opened", duration);
 					toast.show();
-					Intent intent = new Intent();
-					intent.setAction("com.example.notificationtimer.CountDownActivity");
-					startActivity(intent);
 					Intent i = new Intent(AlarmClock.ACTION_SET_ALARM);
 					startActivity(i);
+					finish();
 				}
 			}
 		});
@@ -66,16 +64,12 @@ public class PickAppActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.pick_app, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;

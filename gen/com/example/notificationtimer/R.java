@@ -1928,8 +1928,8 @@ containing a value of this type.
         public static final int alertTitle=0x7f090030;
         public static final int always=0x7f090019;
         public static final int beginning=0x7f090020;
-        public static final int button1=0x7f090052;
-        public static final int button2=0x7f090053;
+        public static final int button1=0x7f090053;
+        public static final int button2=0x7f090054;
         public static final int buttonPanel=0x7f090036;
         public static final int checkbox=0x7f090038;
         public static final int collapseActionView=0x7f09001a;
@@ -1952,7 +1952,7 @@ containing a value of this type.
         public static final int icon=0x7f09002b;
         public static final int ifRoom=0x7f09001b;
         public static final int image=0x7f090028;
-        public static final int imageView1=0x7f090054;
+        public static final int imageView1=0x7f090055;
         public static final int listMode=0x7f09000a;
         public static final int list_item=0x7f09002a;
         public static final int middle=0x7f090022;
@@ -1981,7 +1981,7 @@ containing a value of this type.
         public static final int showCustom=0x7f090010;
         public static final int showHome=0x7f090011;
         public static final int showTitle=0x7f090012;
-        public static final int spinner1=0x7f090055;
+        public static final int spinner1=0x7f090056;
         public static final int split_action_bar=0x7f090004;
         public static final int src_atop=0x7f090016;
         public static final int src_in=0x7f090017;
@@ -1991,9 +1991,9 @@ containing a value of this type.
         public static final int textSpacerNoButtons=0x7f090033;
         public static final int textView1=0x7f09004f;
         public static final int textView2=0x7f090050;
-        public static final int textView3=0x7f090056;
+        public static final int textView3=0x7f090051;
         public static final int textView4=0x7f090059;
-        public static final int timePicker1=0x7f090051;
+        public static final int timePicker1=0x7f090052;
         public static final int title=0x7f09002c;
         public static final int title_template=0x7f09002f;
         public static final int topPanel=0x7f09002e;
