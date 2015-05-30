@@ -49,21 +49,18 @@ public class SMSOptionActivity extends Activity {
 					Toast toast = Toast.makeText(getApplicationContext(), alarmMsg, duration);
 					toast.show();
 					return;
+				} else if (msgBody.equals("")) {
+					int duration = Toast.LENGTH_SHORT;
+					String alarmMsg = "The message body cannot be empty!";
+					Toast toast = Toast.makeText(getApplicationContext(), alarmMsg, duration);
+					toast.show();
+					return;
 				}
 
 				int duration2 = Toast.LENGTH_SHORT;
 
 				Toast toast = Toast.makeText(getApplicationContext(), "Redirecting you to sms!", duration2);
 				toast.show();
-//				Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-//				smsIntent.setType("vnd.android-dir/mms-sms");
-//				smsIntent.putExtra("address", number);
-//				smsIntent.putExtra("sms_body", msgBody);
-//				startActivity(smsIntent);
-//				Uri uri = Uri.parse("smsto:" + number);
-//				Intent it = new Intent(Intent.ACTION_SENDTO, uri);
-//				it.putExtra("sms_body", msgBody);
-//				startActivity(it);
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, msgBody, null, null);
 			}

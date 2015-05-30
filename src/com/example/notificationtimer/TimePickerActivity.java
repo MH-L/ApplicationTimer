@@ -44,24 +44,6 @@ public class TimePickerActivity extends ActionBarActivity {
 		 */
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-//		strings.add("I am proud of you.");
-//		strings.add("Honey, you are soooo pretty.");
-//		strings.add("You make me happy every day!");
-//		strings.add("I miss you soooo much!");
-//		strings.add("I hope to see you now!");
-//		strings.add("Good good study, day day up.");
-//		strings.add("I have been dreaming of you a lot!");
-//		strings.add("See, you are smart!");
-		strings.add("Tu es merde.");
-		strings.add("S**t! Such a stupid person!");
-		strings.add("What makes you so shitty?");
-		strings.add("Do you eat poo every day??");
-		strings.add("You should die on a bean curd.");
-		strings.add("Go to hell!");
-		strings.add("Go skydiving! And you will be smashed!");
-		strings.add("See, you are smart! Oh no, I am joking.");
-		strings.add("Please do not ruin the poo, it is more lovely than you.");
-		strings.add("Failed again, huh? You deserve it!");
 		// My own code here.
 		appTitle = (TextView) findViewById(R.id.textView1);
 		requestTime = (TextView) findViewById(R.id.textView2);
