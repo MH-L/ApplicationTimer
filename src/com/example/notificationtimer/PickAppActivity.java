@@ -35,8 +35,7 @@ public class PickAppActivity extends Activity {
 				if (choice.equalsIgnoreCase("SMS")) {
 					Toast toast = Toast.makeText(getApplicationContext(), "SMS Opened", duration);
 					toast.show();
-					Intent intent = new Intent(getApplicationContext(), TimePickerActivity.class);
-					intent.putExtra("Application", "SMS");
+					Intent intent = new Intent(getApplicationContext(), SMSOptionActivity.class);
 					startActivity(intent);
 				} else if (choice.equalsIgnoreCase("Music")) {
 					Toast toast = Toast.makeText(getApplicationContext(), "MusicGonnaPlay", duration);

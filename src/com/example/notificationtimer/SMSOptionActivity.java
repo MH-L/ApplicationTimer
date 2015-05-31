@@ -59,10 +59,14 @@ public class SMSOptionActivity extends Activity {
 
 				int duration2 = Toast.LENGTH_SHORT;
 
-				Toast toast = Toast.makeText(getApplicationContext(), "Redirecting you to sms!", duration2);
+				Toast toast = Toast.makeText(getApplicationContext(), "Redirecting you to time picker!", duration2);
 				toast.show();
 				SmsManager smsManager = SmsManager.getDefault();
 				smsManager.sendTextMessage(number, null, msgBody, null, null);
+				Intent intent = new Intent();
+				intent.setAction("com.example.notificationtimer.TimePickerActivity");
+				intent.putExtra("Application", "SMS");
+				startActivity(intent);
 			}
 
 			public boolean isNumeric(String s) {

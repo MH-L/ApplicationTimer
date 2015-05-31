@@ -12,6 +12,7 @@
     </uses-permission>
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-feature android:name="android.hardware.camera" >
     </uses-feature>
@@ -72,6 +73,14 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <service
+            android:enabled="true"
+            android:name="com.example.notificationtimer.SendSMSService">
+            <intent-filter>
+                <action android:name="com.example.notificationtimer.SendSMSService" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

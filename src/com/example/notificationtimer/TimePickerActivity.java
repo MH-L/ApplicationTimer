@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Random;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 @SuppressWarnings("deprecation")
-public class TimePickerActivity extends ActionBarActivity {
+public class TimePickerActivity extends Activity {
 	/**
 	 * The title of the App, shown on top of the page.
 	 */
@@ -37,7 +38,6 @@ public class TimePickerActivity extends ActionBarActivity {
 	private static final int HOURS_IN_A_DAY = 24;
 	private static final int MINS_IN_AN_HOUR = 60;
 	private ArrayList<CharSequence> strings = new ArrayList<CharSequence>();
-	private static final Random rand = new Random();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +75,11 @@ public class TimePickerActivity extends ActionBarActivity {
 						hoursToGo = setHour - curHour - 1;
 					else
 						hoursToGo = setHour - curHour;
+				} else if (setHour == curHour) {
+					if (!offset)
+						hoursToGo = 0;
+					else
+						hoursToGo = setHour + HOURS_IN_A_DAY - 1 - curHour;
 				} else {
 					if (offset)
 						hoursToGo = setHour + HOURS_IN_A_DAY - 1 - curHour;
@@ -102,7 +107,12 @@ public class TimePickerActivity extends ActionBarActivity {
 
 				Intent intent = new Intent();
 				if (value.equals("SMS")) {
-					intent.setAction("com.example.notificationtimer.SMSOptionActivity");
+					// start sms service now
+					Intent countDownService = new Intent(getApplicationContext(), SendSMSService.class);
+					countDownService.putExtra("setHour", setHour);
+					countDownService.putExtra("setMinute", setMinute);
+					getApplicationContext().startService(countDownService);
+					intent.setAction("com.example.notificationtimer.CountDownActivity");
 				} else {
 					intent.setAction("com.example.notificationtimer.CountDownActivity");
 				}
