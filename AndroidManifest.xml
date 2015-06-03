@@ -75,11 +75,7 @@
         </activity>
         <service
             android:enabled="true"
-            android:name="com.example.notificationtimer.SendSMSService">
-            <intent-filter>
-                <action android:name="com.example.notificationtimer.SendSMSService" />
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+            android:name=".SendSMSService">
         </service>
     </application>
 

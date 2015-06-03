@@ -27,7 +27,18 @@ public class SendSMSService extends IntentService {
 
 			@Override
 			public void onTick(long millisUntilFinished) {
-				// TODO Auto-generated method stub
+				NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+				builder.setSmallIcon(R.drawable.ic_launcher);
+				builder.setContentTitle("Countdown of Action");
+				builder.setContentText("The service you ordered is about to happen!");
+				Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
+				TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
+				stackBuilder.addParentStack(MainActivity.class);
+				stackBuilder.addNextIntent(intent2);
+				PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+				builder.setContentIntent(pendingIntent);
+				NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+				nm.notify(0, builder.build());
 
 			}
 
@@ -37,8 +48,8 @@ public class SendSMSService extends IntentService {
 				builder.setSmallIcon(R.drawable.ic_launcher);
 				builder.setContentTitle("Countdown of Action");
 				builder.setContentText("The service you ordered is about to happen!");
-				Intent intent = new Intent(SendSMSService.this, MainActivity.class);
-				TaskStackBuilder stackBuilder = TaskStackBuilder.create(SendSMSService.this);
+				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+				TaskStackBuilder stackBuilder = TaskStackBuilder.create(getApplicationContext());
 				stackBuilder.addParentStack(MainActivity.class);
 				stackBuilder.addNextIntent(intent);
 				PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -49,7 +60,6 @@ public class SendSMSService extends IntentService {
 		};
 
 		timer.start();
-
 	}
 
 }

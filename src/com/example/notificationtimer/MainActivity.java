@@ -31,7 +31,6 @@ public class MainActivity extends Activity {
 
 		pickPhotoBtn = (Button) findViewById(R.id.button2);
 		addNewTaskBtn = (Button) findViewById(R.id.button1);
-		iv = (ImageView) findViewById(R.id.imageView1);
 		addNewTaskBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
